@@ -47,7 +47,7 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'name', 'email', 'password', 'pin_code',
+        'name', 'email', 'password', 'pin_code', 'empID'
     ];
 
   
@@ -59,4 +59,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function boot()
+    {
+            parent::boot();
+            self::created(function ($model) { 
+                $model->empID ="EMP-". str_pad($model->id, 9 , "0", STR_PAD_LEFT);
+               $model->save();
+           });
+    }
 }

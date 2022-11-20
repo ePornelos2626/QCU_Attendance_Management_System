@@ -5,40 +5,46 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Employee;
 use App\Models\Role;
+use App\Models\Roles;
 use App\Models\Schedule;
 use App\Http\Requests\EmployeeRec;
 use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\Permission\Traits\HasRoles;
+use DB;
+use Hash;
 
 class EmployeeController extends Controller
 {
    
     public function index()
     {
+        $employees = User::all();
+        $roles = Roles::all();
         
-        return view('admin.employee')->with(['employees'=> Employee::all(), 'schedules'=>Schedule::all()]);
+
+        // 'schedules'=>Schedule::all()
+        
+        return view('admin.employee', [
+
+            'employees'=> $employees,
+            'roles' => $roles
+
+        ]);
     }
 
     public function store(EmployeeRec $request)
     {
+
         $request->validated();
 
-        $employee = new Employee;
-        $employee->name = $request->name;
-        $employee->position = $request->position;
-        $employee->email = $request->email;
-        $employee->pin_code = bcrypt($request->pin_code);
-        $employee->save();
+        $user= User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
 
-        if($request->schedule){
+        $user->roles()->sync($request->role);
 
-            $schedule = Schedule::whereSlug($request->schedule)->first();
-
-            $employee->schedules()->attach($schedule);
-        }
-
-        // $role = Role::whereSlug('emp')->first();
-
-        // $employee->roles()->attach($role);
 
         flash()->success('Success','Employee Record has been created successfully !');
 

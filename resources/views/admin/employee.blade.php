@@ -1,15 +1,15 @@
-@extends('layouts.master')
+@extends('layouts.admin.master')
 
 @section('css')
 @endsection
 
 @section('breadcrumb')
 <div class="col-sm-6">
-    <h4 class="page-title text-left">Employees</h4>
+    <h4 class="page-title text-left">User Accounts</h4>
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Employees</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Employees List</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">User Accounts</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">User Accounts List</a></li>
   
     </ol>
 </div>
@@ -32,11 +32,11 @@
                                         
                                                     <thead>
                                                     <tr>
-                                                        <th data-priority="1">Employee ID</th>
+                                                        <th data-priority="1">User ID</th>
                                                         <th data-priority="2">Name</th>
-                                                        <th data-priority="3">position</th>
+                                                        <th data-priority="3">Position</th>
                                                         <th data-priority="4">Email</th>
-                                                        <th data-priority="5">Schedule</th>
+                              
                                                         <th data-priority="6">Member Since</th>
                                                         <th data-priority="7">Actions</th>
                                                      
@@ -48,13 +48,9 @@
                                                         <tr>
                                                             <td>{{$employee->id}}</td>
                                                             <td>{{$employee->name}}</td>
-                                                            <td>{{$employee->position}}</td>
+                                                            <td>{{$employee->roles->first()->name ?? '' }}</td>
                                                             <td>{{$employee->email}}</td>
-                                                            <td>
-                                                                @if(isset($employee->schedules->first()->slug))
-                                                                {{$employee->schedules->first()->slug}}
-                                                                @endif
-                                                            </td>
+                                               
                                                             <td>{{$employee->created_at}}</td>
                                                             <td>
                         
@@ -75,15 +71,55 @@
                                     
 
 @foreach( $employees as $employee)
-@include('includes.edit_delete_employee')
+@include('admin.modals.edit_delete_employee')
 @endforeach
 
-@include('includes.add_employee')
+@include('admin.modals.add_employee')
 
 @endsection
 
 
 @section('script')
 <!-- Responsive-table-->
+
+<script>
+
+    var password = document.getElementById("password");
+
+    function showPass()
+    {
+
+        console.log("hey");
+
+        if(password.type == "password")
+        {
+            password.type = "text";
+        }
+        else
+        {
+            password.type = "password";
+        }
+    }
+
+    function genPassword()
+    {
+
+
+        var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@$ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var passwordLength = 10;
+        var password = "";
+
+        for(var i=0; i<=passwordLength; i++)
+        {
+            var randomNumber = Math.floor(Math.random() * chars.length);
+            password += chars.substring(randomNumber, randomNumber + 1);
+        }
+
+        console.log(password);
+
+        document.getElementById("password").value = password;
+    }
+
+</script>
 
 @endsection

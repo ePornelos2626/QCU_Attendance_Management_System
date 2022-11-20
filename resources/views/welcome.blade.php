@@ -1,4 +1,4 @@
-@include('layouts.welcome')
+@include('layouts.guest.welcome')
   
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
