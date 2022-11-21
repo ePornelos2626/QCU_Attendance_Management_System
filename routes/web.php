@@ -17,6 +17,12 @@ use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\HRController;
 use App\Http\Controllers\StudentController;
 
+//Program Head
+
+use App\Http\Controllers\PHAnnouncementController;
+use App\Http\Controllers\PHNotificationController;
+use App\Http\Controllers\PHCoursesController;
+
 
 
 
@@ -71,12 +77,20 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
+    //Program Head
 
+    Route::get('Program_Head/Announcement', [PHAnnouncementController::class, 'announcement'])->name('announcement.show');
+    Route::get('Program_Head/Notification', [PHNotificationController::class, 'notification_blade'])->name('notification_blade.show');
+    //Program Head Courses
+    Route::get('Program_Head/Couses/BSA', [PHCoursesController::class, 'bsa_course'])->name('bsa_course.show');
+    Route::get('Program_Head/Couses/BSE', [PHCoursesController::class, 'bse_course'])->name('bse_course.show');
+    Route::get('Program_Head/Couses/BSECE', [PHCoursesController::class, 'bsece_course'])->name('bsece_course.show');
+    Route::get('Program_Head/Couses/BSIT', [PHCoursesController::class, 'bsit_course'])->name('bsit_course.show');
+    Route::get('Program_Head/Couses/BSIE', [PHCoursesController::class, 'bsie_course'])->name('bsie_course.show');
 
 
     //Add Employee
     Route::post('/employees/add_employee', [EmployeeController::class, 'store'])->name('store.perform');
-
 
 
     Route::resource('/employees', '\App\Http\Controllers\EmployeeController');

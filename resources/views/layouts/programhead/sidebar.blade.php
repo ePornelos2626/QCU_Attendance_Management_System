@@ -9,13 +9,13 @@
                         <ul class="metismenu" id="side-menu">
                             <li class="menu-title">Main</li>
                             <li class="">
-                                <a href="{{route('admin')}}" class="waves-effect {{ request()->is("admin") || request()->is("admin/*") ? "mm active" : "" }}">
+                                <a href="{{url('/')}}" class="waves-effect {{ request()->is("admin") || request()->is("admin/*") ? "mm active" : "" }}">
                                     <i class="ti-home"></i><span class="badge badge-primary badge-pill float-right"></span> <span> Dashboard </span>
                                 </a>
                             </li>
                             
 
-                            <li>
+                            {{-- <li>
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i><span> Faculty Accounts <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
                                     <li>
@@ -23,9 +23,42 @@
                                     </li>
                                    
                                 </ul>
+                            </li> --}}
+
+                            <li class="">
+                                <a href="{{ route('announcement.show') }}" class="waves-effect {{ request()->is("schedule") || request()->is("schedule/*") ? "mm active" : "" }}">
+                                    <i class="ti-announcement"></i> <span> Announcement </span>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="{{ route('notification_blade.show') }}" class="waves-effect {{ request()->is("schedule") || request()->is("schedule/*") ? "mm active" : "" }}">
+                                    <i class="ti-bell"></i> <span> Notification </span>
+                                </a>
                             </li>
 
                             <li class="menu-title">Management</li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-desktop"></i><span> Course Module <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a  href="{{ route('bsa_course.show') }}"   class="waves-effect {{ request()->is("employees") || request()->is("/employees/*") ? "mm active" : "" }}"><i class="dripicons-view-apps"></i><span>BSA</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('bse_course.show') }}"  class="waves-effect {{ request()->is("employees") || request()->is("/employees/*") ? "mm active" : "" }}"><i class="dripicons-view-apps"></i><span>BSE</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('bsece_course.show') }}"  class="waves-effect {{ request()->is("employees") || request()->is("/employees/*") ? "mm active" : "" }}"><i class="dripicons-view-apps"></i><span>BSECE</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('bsit_course.show') }}"  class="waves-effect {{ request()->is("employees") || request()->is("/employees/*") ? "mm active" : "" }}"><i class="dripicons-view-apps"></i><span>BSIT</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('bsie_course.show') }}"  class="waves-effect {{ request()->is("employees") || request()->is("/employees/*") ? "mm active" : "" }}"><i class="dripicons-view-apps"></i><span>BSIE</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                         
 
                             {{-- <li class="">
                                 <a href="/schedule" class="waves-effect {{ request()->is("schedule") || request()->is("schedule/*") ? "mm active" : "" }}">
@@ -66,11 +99,11 @@
                             --}}
 
                             <li class="menu-title">Tools</li>
-                            {{-- <li class="">
+                            <li class="">
                                 <a href="{{ route("finger_device.index") }}" class="waves-effect {{ request()->is("finger_device") || request()->is("finger_device/*") ? "mm active" : "" }}">
-                                    <i class="fas fa-fingerprint"></i> <span> Biometric Device </span>
+                                    <i class="ti-settings"></i> <span> Settings </span>
                                 </a>
-                            </li>  --}}
+                            </li> 
 
                         </ul>
 
