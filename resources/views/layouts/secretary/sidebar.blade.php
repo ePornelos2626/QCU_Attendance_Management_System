@@ -9,23 +9,30 @@
                         <ul class="metismenu" id="side-menu">
                             <li class="menu-title">Main</li>
                             <li class="">
-                                <a href="{{route('admin')}}" class="waves-effect {{ request()->is("admin") || request()->is("admin/*") ? "mm active" : "" }}">
+                                <a href="{{url('/')}}" class="waves-effect {{ request()->is("admin") || request()->is("admin/*") ? "mm active" : "" }}">
                                     <i class="ti-home"></i><span class="badge badge-primary badge-pill float-right"></span> <span> Dashboard </span>
                                 </a>
                             </li>
                             
+                            <li class="">
+                                <a href="{{ route('announcement_sec.show') }}" class="waves-effect {{ request()->is("schedule") || request()->is("schedule/*") ? "mm active" : "" }}">
+                                    <i class="ti-announcement"></i> <span> Announcement </span>
+                                </a>
+                            </li>
 
-                            <li>
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i><span> Faculty Accounts <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a class="waves-effect {{ request()->is("employees") || request()->is("/employees/*") ? "mm active" : "" }}"><i class="dripicons-view-apps"></i><span>Faculty List</span></a>
-                                    </li>
-                                   
-                                </ul>
+                            <li class="">
+                                <a href="{{ route('notification_blade_sec.show') }}" class="waves-effect {{ request()->is("schedule") || request()->is("schedule/*") ? "mm active" : "" }}">
+                                    <i class="ti-bell"></i> <span> Notification </span>
+                                </a>
                             </li>
 
                             <li class="menu-title">Management</li>
+
+                            <li class="">
+                                <a href="{{ route('faculty_blade_sec.show') }}" class="waves-effect {{ request()->is("schedule") || request()->is("schedule/*") ? "mm active" : "" }}">
+                                    <i class="ti-user"></i> <span> Faculty </span>
+                                </a>
+                            </li>
 
                             {{-- <li class="">
                                 <a href="/schedule" class="waves-effect {{ request()->is("schedule") || request()->is("schedule/*") ? "mm active" : "" }}">

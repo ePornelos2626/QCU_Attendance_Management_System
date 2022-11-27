@@ -1,4 +1,5 @@
-@extends('layouts.programhead.master')
+@extends('layouts.hr.master')
+
 
 @section('css')
 <!--Chartist Chart CSS -->
@@ -7,16 +8,18 @@
 
 @section('breadcrumb')
 <div class="col-sm-6 text-left" >
-     <h4 class="page-title">BSECE</h4>
+     <h4 class="page-title">BSIT</h4>
      <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Courses</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">BSECE</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Department</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">BSIT</a></li>
      </ol>
 </div>
 @endsection
 
 @section('content')
+
+
 
 
 

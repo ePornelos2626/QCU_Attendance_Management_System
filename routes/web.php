@@ -22,10 +22,24 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\PHAnnouncementController;
 use App\Http\Controllers\PHNotificationController;
 use App\Http\Controllers\PHCoursesController;
+use App\Http\Controllers\PHMonthlyReportController;
 
+//HR
+use App\Http\Controllers\HRAnnouncementController;
+use App\Http\Controllers\HRNotificationController;
+use App\Http\Controllers\HRDepartmentsController;
 
+//Secretary
 
+use App\Http\Controllers\SecAnnouncementController;
+use App\Http\Controllers\SecNotificationController;
+use App\Http\Controllers\SecFacultyController;
 
+//Faculty
+
+use App\Http\Controllers\FacReportsController;
+use App\Http\Controllers\FacNotificationController;
+use App\Http\Controllers\FacClassChedController;
 
 
 
@@ -79,15 +93,30 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Program Head
 
-    Route::get('Program_Head/Announcement', [PHAnnouncementController::class, 'announcement'])->name('announcement.show');
-    Route::get('Program_Head/Notification', [PHNotificationController::class, 'notification_blade'])->name('notification_blade.show');
-    //Program Head Courses
-    Route::get('Program_Head/Couses/BSA', [PHCoursesController::class, 'bsa_course'])->name('bsa_course.show');
-    Route::get('Program_Head/Couses/BSE', [PHCoursesController::class, 'bse_course'])->name('bse_course.show');
-    Route::get('Program_Head/Couses/BSECE', [PHCoursesController::class, 'bsece_course'])->name('bsece_course.show');
-    Route::get('Program_Head/Couses/BSIT', [PHCoursesController::class, 'bsit_course'])->name('bsit_course.show');
-    Route::get('Program_Head/Couses/BSIE', [PHCoursesController::class, 'bsie_course'])->name('bsie_course.show');
+    Route::get('Program_Head/Announcement', [PHAnnouncementController::class, 'announcement'])->name('announcement_ph.show');
+    Route::get('Program_Head/Notification', [PHNotificationController::class, 'notification_blade'])->name('notification_blade_ph.show');
+    Route::get('Program_Head/Monthly_Report', [PHMonthlyReportController::class, 'monthly_report'])->name('monthly_report.show');
 
+    //HR
+
+    Route::get('HR/Announcement', [HRAnnouncementController::class, 'announcement'])->name('announcement_hr.show');
+    Route::get('HR/Notification', [HRNotificationController::class, 'notification_blade'])->name('notification_blade_hr.show');
+    Route::get('HR/Department/BSA', [HRDepartmentsController::class, 'bsa_department'])->name('bsa_course.show');
+    Route::get('HR/Department/BSE', [HRDepartmentsController::class, 'bse_department'])->name('bse_course.show');
+    Route::get('HR/Department/BSECE', [HRDepartmentsController::class, 'bsece_department'])->name('bsece_course.show');
+    Route::get('HR/Department/BSIT', [HRDepartmentsController::class, 'bsit_department'])->name('bsit_course.show');
+    Route::get('HR/Department/BSIE', [HRDepartmentsController::class, 'bsie_department'])->name('bsie_course.show');
+
+    //Secretary
+
+    Route::get('Secretary/Announcement', [SecAnnouncementController::class, 'announcement'])->name('announcement_sec.show');
+    Route::get('Secretary/Notification', [SecNotificationController::class, 'notification_blade'])->name('notification_blade_sec.show');
+    Route::get('Secretary/Faculty', [SecFacultyController::class, 'faculty_blade'])->name('faculty_blade_sec.show');
+
+    //Faculty FacClassChedController
+    Route::get('Faculty/Reports', [FacReportsController::class, 'reports_blade'])->name('reports_blade_fac.show');
+    Route::get('Faculty/Notification', [FacNotificationController::class, 'notification'])->name('notification_fac.show');
+    Route::get('Faculty/Class_Schedule', [FacClassChedController::class, 'class_schedule'])->name('class_schedule.show');
 
     //Add Employee
     Route::post('/employees/add_employee', [EmployeeController::class, 'store'])->name('store.perform');

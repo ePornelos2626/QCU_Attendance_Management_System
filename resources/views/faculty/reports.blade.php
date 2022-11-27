@@ -1,4 +1,4 @@
-@extends('layouts.programhead.master')
+@extends('layouts.faculty.master')
 
 @section('css')
 <!--Chartist Chart CSS -->
@@ -7,11 +7,10 @@
 
 @section('breadcrumb')
 <div class="col-sm-6 text-left" >
-     <h4 class="page-title">BSE</h4>
+     <h4 class="page-title">Reports</h4>
      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Courses</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">BSE</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Reports</a></li>
      </ol>
 </div>
 @endsection

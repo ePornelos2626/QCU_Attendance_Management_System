@@ -1,18 +1,21 @@
-@extends('layouts.programhead.master')
+@extends('layouts.hr.master')
 
 @section('css')
 <!--Chartist Chart CSS -->
 <link rel="stylesheet" href="{{ URL::asset('plugins/chartist/css/chartist.min.css') }}">
 @endsection
 
+
 @section('breadcrumb')
 <div class="col-sm-6 text-left" >
-     <h4 class="page-title">BSIE</h4>
+     <h4 class="page-title">Announcement</h4>
+
      <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Courses</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">BSIE</a></li>
-     </ol>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Announcement</a></li>
+
+    </ol>
+
 </div>
 @endsection
 
