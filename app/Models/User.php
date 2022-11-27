@@ -60,6 +60,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    
+    public function faculty()
+    {
+        return $this->belongsTo('App\Models\Faculty', 'id', 'userID');
+    }
+
     public static function boot()
     {
             parent::boot();

@@ -41,6 +41,7 @@ use App\Http\Controllers\FacReportsController;
 use App\Http\Controllers\FacNotificationController;
 use App\Http\Controllers\FacClassChedController;
 
+use App\Mail\AccountMail;
 
 
 
@@ -60,6 +61,10 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('attended-before/{user_id}', '\App\Http\Controllers\AttendanceController@attendedBefore' )->name('attendedBefore');
     
     Auth::routes(['register' => false, 'reset' => false]);
+
+    Route::get('/email', function() {
+        return new AccountMail();
+    });
 
 
 });
@@ -106,6 +111,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('HR/Department/BSECE', [HRDepartmentsController::class, 'bsece_department'])->name('bsece_course.show');
     Route::get('HR/Department/BSIT', [HRDepartmentsController::class, 'bsit_department'])->name('bsit_course.show');
     Route::get('HR/Department/BSIE', [HRDepartmentsController::class, 'bsie_department'])->name('bsie_course.show');
+    Route::get('HR/Department/{department}/Manage_Faculty', [HRDepartmentsController::class, 'manage_faculty'])->name('manage_faculty.show');
+
+    //HR Create Faculty
+    Route::post('/HR/Department/Add/Faculty', [HRDepartmentsController::class, 'create_faculty'])->name('create_faculty.perform');
+
+
 
     //Secretary
 

@@ -17,7 +17,7 @@
 @section('content')
 <div class="row">
                     
-    <div class="col-xl-3 col-md-6">
+    <div class="col-xl-3 col-md-6"  onclick="window.location.href='{{  url('/HR/Department/BSA') }}'"  >
         <div class="card mini-stat bg-primary text-white">
             <div class="card-body">
                 <div class="mb-4">
@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="col-xl-3 col-md-6">
+    <div class="col-xl-3 col-md-6"  onclick="window.location.href='{{  url('/HR/Department/BSE') }}'">
         <div class="card mini-stat bg-primary text-white">
             <div class="card-body">
                 <div class="mb-4">
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div class="col-xl-3 col-md-6">
+    <div class="col-xl-3 col-md-6"  onclick="window.location.href='{{  url('/HR/Department/BSECE') }}'">
         <div class="card mini-stat bg-primary text-white">
             <div class="card-body">
                 <div class="mb-4">
@@ -84,7 +84,7 @@
     </div>
 
 
-    <div class="col-xl-3 col-md-6">
+    <div class="col-xl-3 col-md-6"  onclick="window.location.href='{{  url('/HR/Department/BSIT') }}'">
         <div class="card mini-stat bg-primary text-white">
             <div class="card-body">
                 <div class="mb-4">
@@ -106,7 +106,7 @@
         </div>
     </div>
 
-    <div class="col-xl-3 col-md-6">
+    <div class="col-xl-3 col-md-6"  onclick="window.location.href='{{  url('/HR/Department/BSIE') }}'">
         <div class="card mini-stat bg-primary text-white">
             <div class="card-body">
                 <div class="mb-4">

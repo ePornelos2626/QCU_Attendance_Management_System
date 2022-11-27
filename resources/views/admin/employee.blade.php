@@ -70,11 +70,14 @@
                         </div> <!-- end row -->    
                                     
 
-@foreach( $employees as $employee)
-@include('admin.modals.edit_delete_employee')
-@endforeach
 
 @include('admin.modals.add_employee')
+
+
+{{-- @foreach( $employees as $employee)
+@include('admin.modals.edit_delete_employee')
+@endforeach --}}
+
 
 @endsection
 
