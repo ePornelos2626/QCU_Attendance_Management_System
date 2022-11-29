@@ -120,6 +120,7 @@
                               </div>
                           </div>
                       </div>
+                      
                   </div> <!-- end col -->
               </div> <!-- end row -->    
                           
@@ -316,14 +317,14 @@
     @if ($department == 'BSIE')
 
     @section('button')
-    <a href="#addnewfaculty" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="mdi mdi-plus mr-2"></i>Add</a>
-@endsection
+         <a href="#addnewfaculty" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="mdi mdi-plus mr-2"></i>Add</a>
+    @endsection
 
 
 @include('includes.flash')
 
 
-{{ $accountQR }}
+
 
 <div class="row">
       <div class="col-12">

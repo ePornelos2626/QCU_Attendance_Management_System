@@ -3860,3 +3860,14 @@ Invoice
   text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
+
+.text-s
+{
+  text-align: left;
+  margin-left: 30px;
+}
+.button-align
+{
+  text-align: right;
+  margin-right: 30px;
+}

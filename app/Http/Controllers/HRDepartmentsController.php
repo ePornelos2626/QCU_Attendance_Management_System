@@ -46,9 +46,16 @@ class HRDepartmentsController extends Controller
 
     public function manage_faculty($department)
     {
+
+        $faculty = Faculty::where('department', $department)
+        ->get();
+
      
          return view('hr.manage_faculty', [
-            'department' => $department
+
+            'department' => $department,
+            'faculty' => $faculty
+            
          ]);
     }
 

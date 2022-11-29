@@ -15,7 +15,7 @@ class Faculty extends Model
         'facultyID',
         'empID',
         'userID',
-        'departmentID',
+        'department',
         'faculty_firstname',
         'faculty_middlename',
         'faculty_lastname', 

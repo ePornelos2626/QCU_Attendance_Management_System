@@ -115,7 +115,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     //HR Create Faculty
     Route::post('/HR/Department/Add/Faculty', [HRDepartmentsController::class, 'create_faculty'])->name('create_faculty.perform');
-
+    //HR Post Announcement create_announcement
+    Route::post('/HR/Announcement/Post/Announcement', [HRAnnouncementController::class, 'create_announcement'])->name('create_announcement.perform');
 
 
     //Secretary

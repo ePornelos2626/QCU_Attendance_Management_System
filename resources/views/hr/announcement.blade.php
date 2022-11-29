@@ -22,7 +22,69 @@
 @section('content')
 
 
+    @section('button')
+        <a href="#addannouncement" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="mdi mdi-plus mr-2"></i>Create Announcement</a>
+    @endsection
 
+
+
+
+
+@include('includes.flash')
+
+
+
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                        <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                
+                            <thead>
+
+                            <tr>
+
+                                <th data-priority="1">Announcement ID</th>
+                                <th data-priority="2">Subject</th>
+                                <th data-priority="3">Department</th>
+                                <th data-priority="4">Date</th>
+                                <th data-priority="7">Actions</th>
+                             
+                             
+                            </tr>
+
+                            </thead>
+                            <tbody>
+                                @foreach( $announcement as $announcements)
+
+                                <tr>
+                                    <td>{{$announcements->announcementID}}</td>
+                                    <td>{{$announcements->subject}}</td>
+                                    <td>{{$announcements->department}}</td>
+                                    <td>{{$announcements->created_at->format('d/m/Y')}}</td>
+                       
+                    
+                                    <td>
+
+                                        <a href="#edit{{$announcements->id}}" data-toggle="modal" class="btn btn-success btn-sm edit btn-flat"><i class='fa fa-edit'></i> Edit</a>
+                                        <a href="#delete{{$announcements->id}}" data-toggle="modal" class="btn btn-danger btn-sm delete btn-flat"><i class='fa fa-trash'></i> Delete</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                           
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+      </div>
+
+ 
+
+@include('hr.modals.add-anouncement-modal')
 
 
 @endsection
