@@ -87,32 +87,31 @@
                                           <thead>
                                           <tr>
                                               <th data-priority="1">Faculty ID</th>
-                                              <th data-priority="2">Name</th>
-                                              <th data-priority="3">Position</th>
+                                
                                               <th data-priority="4">Email</th>
                     
-                                              <th data-priority="6">Member Since</th>
+                                 
                                               <th data-priority="7">Actions</th>
                                            
                                           </tr>
                                           </thead>
                                           <tbody>
-                                              {{-- @foreach( $employees as $employee)
+                                              @foreach( $faculty as $faculties)
 
                                               <tr>
-                                                  <td>{{$employee->id}}</td>
-                                                  <td>{{$employee->name}}</td>
-                                                  <td>{{$employee->roles->first()->name ?? '' }}</td>
-                                                  <td>{{$employee->email}}</td>
+                                                  <td>{{$faculties->facultyID }}</td>
+                                         
+                                                  <td>{{$faculties->faculty_email }}</td>
+                                        
                                      
-                                                  <td>{{$employee->created_at}}</td>
+
                                                   <td>
               
-                                                      <a href="#edit{{$employee->name}}" data-toggle="modal" class="btn btn-success btn-sm edit btn-flat"><i class='fa fa-edit'></i> Edit</a>
-                                                      <a href="#delete{{$employee->name}}" data-toggle="modal" class="btn btn-danger btn-sm delete btn-flat"><i class='fa fa-trash'></i> Delete</a>
+                                                      <a href="#edit{{$faculties->facultyID}}" data-toggle="modal" class="btn btn-success btn-sm edit btn-flat"><i class='fa fa-edit'></i> Edit</a>
+                                                      <a href="#delete{{$faculties->facultyID}}" data-toggle="modal" class="btn btn-danger btn-sm delete btn-flat"><i class='fa fa-trash'></i> Delete</a>
                                                   </td>
                                               </tr>
-                                              @endforeach --}}
+                                              @endforeach
                                          
                                           </tbody>
                                       </table>
