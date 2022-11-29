@@ -61,14 +61,35 @@ class HRDepartmentsController extends Controller
         $email = $request->email;
         // $name = $request->name;
 
-        $data = [
-                'name' => $request->name,
-                'email' => $request->email,
-                'username' => $request->username,
-                'password' =>  $request->passwordshow
-                ];
+        // $data = [
+        //         'name' => $request->name,
+        //         'email' => $request->email,
+        //         'username' => $request->username,
+        //         'password' =>  $request->passwordshow
+        //         ];
 
-        $jsonData = json_encode($data);
+        // $jsonData = json_encode($data);
+
+        // $accountQR = QrCode::format('png')->size(200)->style('square')->generate($jsonData);
+
+        // $custom_png = 'data:image/' . 'png' . ';base64,' . base64_encode($accountQR);
+
+    
+        // $base64  = base64_encode($accountQR);
+
+        // dd($custom_png);
+
+        // $base64  = base64_encode($accountQR);
+ 
+
+       
+        // $accountQR->move(public_path('faculty_qr'));
+
+
+        // $facultyqr = time() . '-' . 'heys' . '.' .
+        // $accountQR->extension();
+        // $accountQR->move(public_path('faculty_qr'), $facultyqr);
+
 
         $user = User::create([
             'username' => $request->username,
@@ -79,8 +100,7 @@ class HRDepartmentsController extends Controller
 
         $user->roles()->sync($request->role);
 
-        $accountQR = QrCode::format('png')->size(200)->style('square')->generate($jsonData);
-
+    
         
         // $accountQR = QrCode::format('svg')->size(200)->style('square')->generate([
         //     'name' => $request->name,
@@ -89,16 +109,13 @@ class HRDepartmentsController extends Controller
         //     'password' =>  $request->passwordshow
         // ]);
 
-        $facultyqr = time() . '-' . $user->id . '.' .
-        $accountQR->extension();
-        $accountQR->move(public_path('faculty_qr'), $facultyqr);
 
         $faculty = Faculty::create([
             'userID' => $user->id,
             'department' => $request->department,
             'faculty_email' => $request->email,
-            'faculty_permission' => 1,
-            'faculty_qr' => $facultyqr
+            'faculty_permission' => 1
+            // 'faculty_qr' => $facultyqr
         ]);
 
         // Mail::to($email)->send(new AccountMail($data));
@@ -109,8 +126,12 @@ class HRDepartmentsController extends Controller
 
 
         flash()->success('Success','Faculty Record has been created successfully !');
+       
+        return redirect()->route('manage_faculty.show', $request->department );
 
-        return redirect()->route('manage_faculty.show', $request->department )->with('success');
+        // return redirect()->route(' hr.index', [
+        //     'accountQR' => $accountQR
+        // ]);
 
     }
 

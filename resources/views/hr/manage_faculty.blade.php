@@ -323,6 +323,8 @@
 @include('includes.flash')
 
 
+{{ $accountQR }}
+
 <div class="row">
       <div class="col-12">
           <div class="card">
