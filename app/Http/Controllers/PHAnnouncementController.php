@@ -8,7 +8,11 @@ class PHAnnouncementController extends Controller
 {
     public function announcement()
     {
-        return view('programhead.announcement');
+        $user = auth()->user();
+
+        return view('programhead.announcement', [
+            'user' => $user
+        ]);
     }
 
   

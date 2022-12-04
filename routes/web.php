@@ -102,6 +102,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('Program_Head/Announcement', [PHAnnouncementController::class, 'announcement'])->name('announcement_ph.show');
     Route::get('Program_Head/Notification', [PHNotificationController::class, 'notification_blade'])->name('notification_blade_ph.show');
     Route::get('Program_Head/Monthly_Report', [PHMonthlyReportController::class, 'monthly_report'])->name('monthly_report.show');
+    //read notification read
+    Route::get('Program_Head/Notification/{id}/{key}/announcement/{notid}', [PHNotificationController::class, 'notification_annoucementRead'])->name('notification_annoucementRead.show');
+    //read notifcation view
+    Route::get('Program_Head/Notification/{id}/{key}/announcement/', [PHNotificationController::class, 'notification_annoucement'])->name('notification_annoucement.show');
+    
+
 
     //HR
 

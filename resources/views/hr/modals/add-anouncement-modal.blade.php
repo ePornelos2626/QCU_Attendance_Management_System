@@ -50,6 +50,25 @@
                     </div>
                 </div>
 
+                <div class="row">
+               
+                    <div class="col-6  text-s">
+                        <div class="form-group">
+                            <label for="name">Program Head:</label>
+                        <select class="form-control" name="programhead" id="">
+                            <option value="0">Select Program Head</option>
+                            @foreach ($programhead as $programheaditem)
+                            <option value="{{ $programheaditem->userID }}">{{ $programheaditem->ph_firstname }}</option> 
+                            @endforeach
+
+                   
+                         
+                        </select>
+
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="row">
      

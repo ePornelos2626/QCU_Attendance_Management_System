@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Announcement;
+use App\Notifications\AnnouncementHRNotification;
+use Illuminate\Support\Facades\Notification;
+use App\Models\ProgramHead;
+use App\Models\User;
+use Illuminate\Support\Facades\URL;
 
 class HRAnnouncementController extends Controller
 {
@@ -15,9 +20,12 @@ class HRAnnouncementController extends Controller
         $announcement = Announcement::where('userID', $id)
         ->get();
 
+        $programhead = ProgramHead::all();
+
         return view('hr.announcement', [
 
-            'announcement' => $announcement
+            'announcement' => $announcement,
+            'programhead' => $programhead
 
         ]);
     }
@@ -60,9 +68,32 @@ class HRAnnouncementController extends Controller
             'accesskey' => $token,
             'subject' => $request->subject,
             'departmentID' => $request->department,
-            'to_user' => $to_user,
-            'attachment' => $attachments
+            'sender' => $to_user,
+            'attachment' => $attachments,
+            'announcement_to' => 'Program Head',
+            'receiver' => $request->programhead,
+            'announcement_description' => $request->announcement
         ]);
+
+   
+
+        $link = URL::to('Program_Head/Notification/'.$announcment->id.'/'.$announcment->accesskey.'/announcement' );
+
+        //data
+        $datas = [
+            'subject' => $request->subject,
+            'name' => $to_user,
+            'link' => $link
+        ];
+
+     
+        //receiver
+        $receiver = $request->programhead;
+        $user = User::where('id', $receiver)
+        ->first();
+
+        Notification::send($user, new AnnouncementHRNotification($datas));
+
 
         flash()->success('Success','Announcement has been posted successfully !');
 

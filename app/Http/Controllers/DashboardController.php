@@ -11,6 +11,8 @@ class DashboardController extends Controller
 
         $code = auth()->user()->roles->first()->slug ;
 
+        $user = auth()->user();
+
    
 
         if($code == "admin")
@@ -23,6 +25,7 @@ class DashboardController extends Controller
         if($code == "program head")
         {
     
+       
             return redirect()->route('programhead.index');
         }
 

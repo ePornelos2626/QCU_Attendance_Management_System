@@ -19,6 +19,62 @@
 
 
 
+<div class="row">
+   <div class="col-12">
+       <div class="card">
+           <div class="card-body">
+                       <table class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+               
+                           <thead>
+                           <tr>
+                               <th data-priority="1">Notification</th>
+                        
+                            
+                           </tr>
+                           </thead>
+                           <tbody>
+
+                             
+                              @foreach ($user->Notifications  as $notifications)
+                              <tr>
+                             
+                                 <td>
+                                    <a href="{{ url($notifications->data['link']  ) }}">
+                                    <div class="d-flex">
+                                          <i class="mdi mdi-message-text-outline"></i></span>  <p class="card-text"> {{ $notifications->data['subject'] }}  by:  {{ $notifications->data['name'] }}.  {{ $notifications->created_at->diffForHumans() }}</p>
+                                    </div>
+                                    </a>
+                                 </td>
+
+                              </tr>
+
+                              @endforeach
+
+                               {{-- @foreach( $employees as $employee)
+
+                               <tr>
+                                   <td>{{$employee->id}}</td>
+                                   <td>{{$employee->name}}</td>
+                                   <td>{{$employee->roles->first()->name ?? '' }}</td>
+                                   <td>{{$employee->email}}</td>
+                      
+                                   <td>{{$employee->created_at}}</td>
+                                   <td>
+
+                                       <a href="#edit{{$employee->name}}" data-toggle="modal" class="btn btn-success btn-sm edit btn-flat"><i class='fa fa-edit'></i> Edit</a>
+                                       <a href="#delete{{$employee->name}}" data-toggle="modal" class="btn btn-danger btn-sm delete btn-flat"><i class='fa fa-trash'></i> Delete</a>
+                                   </td>
+                               </tr>
+                               @endforeach --}}
+                          
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+           </div>
+       </div>
+       
+
 
 
 @endsection

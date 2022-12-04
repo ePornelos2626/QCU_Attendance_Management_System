@@ -18,8 +18,13 @@ class Announcement extends Model
         'accesskey',
         'subject',
         'departmentID',
-        'to_user',
-        'attachment'
+        'courseID',
+        'sender',
+        'receiver',
+        'attachment',
+        'announcement_to',
+        'announcement_description'
+
     ];
 
 

@@ -9,6 +9,7 @@ class ProgramHeadController extends Controller
 {
     public function index()
     {
+        $user = auth()->user();
 
         $role = auth()->user()->roles->first()->name;
         
@@ -20,7 +21,8 @@ class ProgramHeadController extends Controller
 
         return view('programhead.index', [
             'qrsample' => $qrsample,
-            'role' => $role
+            'role' => $role,
+            'user' => $user
         ]);
     }
 
