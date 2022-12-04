@@ -47,12 +47,17 @@ class Faculty extends Model
 
     public function department()
     {
-        return $this->hasMany('App\Models\Department', 'code_dept', 'departmentID');
+        return $this->belongsTo('App\Models\Department', 'code_dept', 'departmentID');
     }
 
     public function course()
     {
         return $this->hasMany('App\Models\Courses', 'code_course', 'courseID');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\Faculty', 'id', 'userID');
     }
 
 

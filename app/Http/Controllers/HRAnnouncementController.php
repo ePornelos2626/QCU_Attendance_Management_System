@@ -49,6 +49,8 @@ class HRAnnouncementController extends Controller
     {
         //  dd($request);
 
+ 
+
         $str = \Str::random(3);
 
         $token = \Str::random(60);

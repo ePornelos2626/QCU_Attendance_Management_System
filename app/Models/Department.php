@@ -24,6 +24,11 @@ class Department extends Model
         return $this->hasMany('App\Models\Faculty', 'code_dept', 'departmentID');
     }
 
+    public function programhead()
+    {
+        return $this->hasMany('App\Models\ProgramHead', 'code_dept', 'departmentID');
+    }
+
     
     public function courses()
     {

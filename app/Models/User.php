@@ -63,7 +63,17 @@ class User extends Authenticatable
     
     public function faculty()
     {
-        return $this->belongsTo('App\Models\Faculty', 'id', 'userID');
+        return $this->hasOne('App\Models\Faculty', 'userID', 'id');
+    }
+
+    public function secretary()
+    {
+        return $this->hasOne('App\Models\Secretary', 'userID', 'id');
+    }
+
+    public function programhead()
+    {
+        return $this->hasOne('App\Models\ProgramHead', 'userID', 'id');
     }
 
     public static function boot()

@@ -106,7 +106,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('Program_Head/Notification/{id}/{key}/announcement/{notid}', [PHNotificationController::class, 'notification_annoucementRead'])->name('notification_annoucementRead.show');
     //read notifcation view
     Route::get('Program_Head/Notification/{id}/{key}/announcement/', [PHNotificationController::class, 'notification_annoucement'])->name('notification_annoucement.show');
-    
+    //create announcement create_announcement_ph
+    Route::post('/Program_Head/Announcement/Post/Announcement', [PHAnnouncementController::class, 'create_announcement_ph'])->name('create_announcement_ph.perform');
 
 
     //HR
@@ -134,6 +135,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('Secretary/Announcement', [SecAnnouncementController::class, 'announcement'])->name('announcement_sec.show');
     Route::get('Secretary/Notification', [SecNotificationController::class, 'notification_blade'])->name('notification_blade_sec.show');
     Route::get('Secretary/Faculty', [SecFacultyController::class, 'faculty_blade'])->name('faculty_blade_sec.show');
+
+
+
 
     //Faculty FacClassChedController
     Route::get('Faculty/Reports', [FacReportsController::class, 'reports_blade'])->name('reports_blade_fac.show');
