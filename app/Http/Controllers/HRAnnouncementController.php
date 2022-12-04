@@ -22,9 +22,24 @@ class HRAnnouncementController extends Controller
         ]);
     }
 
+    public function announcement_item($id, $key)
+    {
+        $user = auth()->user();
+        $id = $user->id;
+
+        $announcement = Announcement::where('id', $id)
+        ->first();
+
+        return view('hr.announcement-item', [
+
+            'announcement' => $announcement
+
+        ]);
+    }
+
     public function create_announcement(Request $request)
     {
-        // dd($request);
+        //  dd($request);
 
         $str = \Str::random(3);
 
@@ -44,7 +59,7 @@ class HRAnnouncementController extends Controller
             'userID' => $id,
             'accesskey' => $token,
             'subject' => $request->subject,
-            'department' => $request->department,
+            'departmentID' => $request->department,
             'to_user' => $to_user,
             'attachment' => $attachments
         ]);

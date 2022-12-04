@@ -41,7 +41,7 @@
                           
                             <li class="menu-title">Management</li>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-desktop"></i><span> Department Module <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-desktop"></i><span> Courses Module <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
                                     <li>
                                         <a  href="{{ route('bsa_course.show') }}"   class="waves-effect {{ request()->is("employees") || request()->is("/employees/*") ? "mm active" : "" }}"><i class="dripicons-view-apps"></i><span>BSA</span></a>

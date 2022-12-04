@@ -63,12 +63,12 @@
                                 <tr>
                                     <td>{{$announcements->announcementID}}</td>
                                     <td>{{$announcements->subject}}</td>
-                                    <td>{{$announcements->department}}</td>
+                                    <td>{{$announcements->department->name}}</td>
                                     <td>{{$announcements->created_at->format('d/m/Y')}}</td>
                        
                     
                                     <td>
-
+                                        <a href="{{ route('announcement_item.show', ['id' => $announcements->id, 'key' => $announcements->accesskey] ) }}"  class="btn btn-primary btn-sm edit btn-flat"><i class='fa fa-eye'></i> View</a>
                                         <a href="#edit{{$announcements->id}}" data-toggle="modal" class="btn btn-success btn-sm edit btn-flat"><i class='fa fa-edit'></i> Edit</a>
                                         <a href="#delete{{$announcements->id}}" data-toggle="modal" class="btn btn-danger btn-sm delete btn-flat"><i class='fa fa-trash'></i> Delete</a>
                                     </td>

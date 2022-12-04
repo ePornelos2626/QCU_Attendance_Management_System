@@ -25,7 +25,7 @@
 
                         <input type="hidden" name="role" value="4" >
 
-                        <input type="hidden" name="department" value="{{ $department }}" >
+                        <input type="hidden" name="courses" value="{{ $courses }}" >
                
                         <div class="form-group">
                             <label for="name">Username</label>

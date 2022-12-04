@@ -16,70 +16,70 @@ use App\Mail\AccountMail;
 use Illuminate\Support\Facades\Mail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-class HRDepartmentsController extends Controller
+class HRCoursesController extends Controller
 {
-    public function bsa_department()
+    public function bsa_course()
     {
         return view('hr.courses.bsa_ph');
     }
 
-    public function bse_department()
+    public function bse_course()
     {
         return view('hr.courses.bse_ph');
     }
 
-    public function bsece_department()
+    public function bsece_course()
     {
         return view('hr.courses.bsece_ph');
     }
 
-    public function bsit_department()
+    public function bsit_course()
     {
         return view('hr.courses.bsit_ph');
     }
 
-    public function bsie_department()
+    public function bsie_course()
     {
         return view('hr.courses.bsie_ph');
     }
 
-
-    public function manage_faculty($department)
+    public function manage_faculty($courses)
     {
 
-        if($department == "BSA")
+        if($courses == "BSA")
         {
-            $dept = 2;
+            $course = 2;
         }
-        elseif ($department == "BSE")
+        elseif ($courses == "BSE")
         {
-            $dept = 5;
+            $course = 5;
         }
-        elseif ($department == "BSECE")
+        elseif ($courses == "BSECE")
         {
-            $dept = 1;
+            $course = 1;
         }
-        elseif ($department == "BSIT")
+        elseif ($courses == "BSIT")
         {
-            $dept = 0;
+            $course = 0;
         }
-        elseif ($department == "BSIE")
+        elseif ($courses == "BSIE")
         {
-            $dept = 3;
+            $course = 3;
         }
 
 
-        $faculty = Faculty::where('departmentID', $dept)
+        $faculty = Faculty::where('courseID', $course)
         ->get();
 
      
          return view('hr.manage_faculty', [
 
-            'department' => $department,
+            'courses' => $courses,
             'faculty' => $faculty
             
          ]);
     }
+
 
     public function create_faculty(Request $request)
     {   
@@ -87,26 +87,28 @@ class HRDepartmentsController extends Controller
         $email = $request->email;
 
 
-        if($request->department == "BSA")
+        if($request->courses == "BSA")
         {
-            $dept = 2;
+            $course = 2;
         }
-        elseif ($request->department == "BSE")
+        elseif ($request->courses == "BSE")
         {
-            $dept = 5;
+            $course = 5;
         }
-        elseif ($request->department == "BSECE")
+        elseif ($request->courses == "BSECE")
         {
-            $dept = 1;
+            $course = 1;
         }
-        elseif ($request->department == "BSIT")
+        elseif ($request->courses == "BSIT")
         {
-            $dept = 0;
+            $course = 0;
         }
-        elseif ($request->department == "BSIE")
+        elseif ($request->courses == "BSIE")
         {
-            $dept = 3;
+            $course = 3;
         }
+
+
 
 
         // dd($dept);
@@ -175,7 +177,7 @@ class HRDepartmentsController extends Controller
 
         $faculty = Faculty::create([
             'userID' => $user->id,
-            'departmentID' => $dept,
+            'courseID' => $course,
             'faculty_email' => $request->email,
             'faculty_permission' => 1
             // 'faculty_qr' => $facultyqr
@@ -190,12 +192,13 @@ class HRDepartmentsController extends Controller
 
         flash()->success('Success','Faculty Record has been created successfully !');
        
-        return redirect()->route('manage_faculty.show', $request->department );
+        return redirect()->route('manage_faculty.show', $request->courses );
 
         // return redirect()->route(' hr.index', [
         //     'accountQR' => $accountQR
         // ]);
 
     }
+
 
 }

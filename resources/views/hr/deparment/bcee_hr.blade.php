@@ -8,20 +8,22 @@
 
 @section('breadcrumb')
 <div class="col-sm-6 text-left" >
-     <h4 class="page-title">BSA</h4>
+     <h4 class="page-title">BSIE</h4>
      <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Course</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">BSA</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Department</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">BSIE</a></li>
      </ol>
 </div>
 @endsection
 
 @section('content')
 
+
+
 <div class="row">
                     
-   <div class="col-xl-3 col-md-6" onclick="window.location.href='{{  route('manage_faculty.show', 'BSA') }}'" >
+   <div class="col-xl-3 col-md-6" onclick="window.location.href='{{  route('manage_faculty.show', 'BSIE') }}'" >
        <div class="card mini-stat bg-primary text-white">
            <div class="card-body">
                <div class="mb-4">
@@ -67,10 +69,6 @@
 
 
 </div>
-
-
-
-
 
 
 

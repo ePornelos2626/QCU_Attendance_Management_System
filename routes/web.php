@@ -28,6 +28,7 @@ use App\Http\Controllers\PHMonthlyReportController;
 use App\Http\Controllers\HRAnnouncementController;
 use App\Http\Controllers\HRNotificationController;
 use App\Http\Controllers\HRDepartmentsController;
+use App\Http\Controllers\HRCoursesController;
 
 //Secretary
 
@@ -106,15 +107,18 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('HR/Announcement', [HRAnnouncementController::class, 'announcement'])->name('announcement_hr.show');
     Route::get('HR/Notification', [HRNotificationController::class, 'notification_blade'])->name('notification_blade_hr.show');
-    Route::get('HR/Department/BSA', [HRDepartmentsController::class, 'bsa_department'])->name('bsa_course.show');
-    Route::get('HR/Department/BSE', [HRDepartmentsController::class, 'bse_department'])->name('bse_course.show');
-    Route::get('HR/Department/BSECE', [HRDepartmentsController::class, 'bsece_department'])->name('bsece_course.show');
-    Route::get('HR/Department/BSIT', [HRDepartmentsController::class, 'bsit_department'])->name('bsit_course.show');
-    Route::get('HR/Department/BSIE', [HRDepartmentsController::class, 'bsie_department'])->name('bsie_course.show');
-    Route::get('HR/Department/{department}/Manage_Faculty', [HRDepartmentsController::class, 'manage_faculty'])->name('manage_faculty.show');
+    Route::get('HR/Course/BSA', [HRCoursesController::class, 'bsa_course'])->name('bsa_course.show');
+    Route::get('HR/Course/BSE', [HRCoursesController::class, 'bse_course'])->name('bse_course.show');
+    Route::get('HR/Course/BSECE', [HRCoursesController::class, 'bsece_course'])->name('bsece_course.show');
+    Route::get('HR/Course/BSIT', [HRCoursesController::class, 'bsit_course'])->name('bsit_course.show');
+    Route::get('HR/Course/BSIE', [HRCoursesController::class, 'bsie_course'])->name('bsie_course.show');
+    Route::get('HR/Course/{course}/Manage_Faculty', [HRCoursesController::class, 'manage_faculty'])->name('manage_faculty.show');
+
+    Route::get('HR/Announcement/{id}/{key}/View', [HRAnnouncementController::class, 'announcement_item'])->name('announcement_item.show');
 
     //HR Create Faculty
-    Route::post('/HR/Department/Add/Faculty', [HRDepartmentsController::class, 'create_faculty'])->name('create_faculty.perform');
+    Route::post('/HR/Courses/Add/Faculty', [HRCoursesController::class, 'create_faculty'])->name('create_faculty.perform');
+    
     //HR Post Announcement create_announcement
     Route::post('/HR/Announcement/Post/Announcement', [HRAnnouncementController::class, 'create_announcement'])->name('create_announcement.perform');
 

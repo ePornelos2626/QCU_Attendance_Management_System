@@ -11,7 +11,7 @@
      <h4 class="page-title">BSIE</h4>
      <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Department</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Course</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">BSIE</a></li>
      </ol>
 </div>

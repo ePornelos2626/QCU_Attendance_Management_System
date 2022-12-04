@@ -9,47 +9,47 @@
 @section('breadcrumb')
 <div class="col-sm-6 text-left" >
 
-    @if ($department == 'BSA')
+    @if ($courses == 'BSA')
     <h4 class="page-title">BSA</h4>
      <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Department</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Course</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">BSA</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">Manage Faculty</a></li>
      </ol>
     @endif
-    @if ($department == 'BSE')
+    @if ($courses == 'BSE')
     <h4 class="page-title">BSE</h4>
      <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Department</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Course</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">BSE</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">Manage Faculty</a></li>
      </ol>
     @endif
-    @if ($department == 'BSECE')
+    @if ($courses == 'BSECE')
     <h4 class="page-title">BSECE</h4>
      <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Department</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Course</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">BSECE</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">Manage Faculty</a></li>
      </ol>
     @endif
-    @if ($department == 'BSIT')
+    @if ($courses == 'BSIT')
     <h4 class="page-title">BSIT</h4>
      <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Department</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Course</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">BSIT</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">Manage Faculty</a></li>
      </ol>
     @endif
-    @if ($department == 'BSIE')
+    @if ($courses == 'BSIE')
     <h4 class="page-title">BSIE</h4>
      <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0);">Department</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Course</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">BSIE</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0);">Manage Faculty</a></li>
      </ol>
@@ -68,7 +68,7 @@
 
 
 
-    @if ($department == 'BSA')
+    @if ($courses == 'BSA')
 
             @section('button')
                 <a href="#addnewfaculty" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="mdi mdi-plus mr-2"></i>Add</a>
@@ -131,7 +131,7 @@
     @endif
 
 
-    @if ($department == 'BSE')
+    @if ($courses == 'BSE')
   @section('button')
                 <a href="#addnewfaculty" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="mdi mdi-plus mr-2"></i>Add</a>
             @endsection
@@ -191,7 +191,7 @@
 
     @endif
 
-    @if ($department == 'BSECE')
+    @if ($courses == 'BSECE')
 
     @section('button')
     <a href="#addnewfaculty" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="mdi mdi-plus mr-2"></i>Add</a>
@@ -252,7 +252,7 @@
 
     @endif
 
-    @if ($department == 'BSIT')
+    @if ($courses == 'BSIT')
 
     @section('button')
     <a href="#addnewfaculty" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="mdi mdi-plus mr-2"></i>Add</a>
@@ -313,7 +313,7 @@
 
     @endif
 
-    @if ($department == 'BSIE')
+    @if ($courses == 'BSIE')
 
     @section('button')
          <a href="#addnewfaculty" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="mdi mdi-plus mr-2"></i>Add</a>

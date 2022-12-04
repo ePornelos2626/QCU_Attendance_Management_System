@@ -15,7 +15,8 @@ class Faculty extends Model
         'facultyID',
         'empID',
         'userID',
-        'department',
+        'departmentID',
+        'courseID',
         'faculty_firstname',
         'faculty_middlename',
         'faculty_lastname', 
@@ -42,6 +43,18 @@ class Faculty extends Model
                 $model->save();
             });
     }
+
+
+    public function department()
+    {
+        return $this->hasMany('App\Models\Department', 'code_dept', 'departmentID');
+    }
+
+    public function course()
+    {
+        return $this->hasMany('App\Models\Courses', 'code_course', 'courseID');
+    }
+
 
     // public static function boot()
     // {

@@ -17,7 +17,7 @@ class Announcement extends Model
         'userID',
         'accesskey',
         'subject',
-        'department',
+        'departmentID',
         'to_user',
         'attachment'
     ];
@@ -31,4 +31,13 @@ class Announcement extends Model
             $model->save();
         });
     }
+
+
+    
+    public function department()
+    {
+        return $this->belongsTo('App\Models\Department', 'departmentID', 'code_dept');
+    }
+
+
 }

@@ -40,11 +40,10 @@
                         <div class="form-group">
                             <label for="name">Department:</label>
                         <select class="form-control" name="department" id="">
-                            <option value="BSA">BSA</option>
-                            <option value="BSE">BSE</option>
-                            <option value="BSECE">BSECE</option>
-                            <option value="BSIT">BSIT</option>
-                            <option value="BSIE">BSIE</option>
+                            <option value="0">Department 1</option>
+                            <option value="1">Department 2</option>
+                            <option value="2">Department 3</option>
+                         
                         </select>
 
                         </div>
