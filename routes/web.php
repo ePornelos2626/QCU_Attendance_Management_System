@@ -135,7 +135,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('Secretary/Announcement', [SecAnnouncementController::class, 'announcement'])->name('announcement_sec.show');
     Route::get('Secretary/Notification', [SecNotificationController::class, 'notification_blade'])->name('notification_blade_sec.show');
     Route::get('Secretary/Faculty', [SecFacultyController::class, 'faculty_blade'])->name('faculty_blade_sec.show');
-
+    //read notification read
+    Route::get('Secretary/Notification/{id}/{key}/announcement/{notid}', [SecNotificationController::class, 'notification_annoucementReadSec'])->name('notification_annoucementReadSec.show');
+    //read notifcation view
+    Route::get('Secretary/Notification/{id}/{key}/announcement/', [SecNotificationController::class, 'notification_annoucementSec'])->name('notification_annoucementSec.show');
 
 
 

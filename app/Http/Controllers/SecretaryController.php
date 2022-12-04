@@ -8,6 +8,9 @@ class SecretaryController extends Controller
 {
     public function index()
     {
-        return view('secretary.index');
+        $user = auth()->user();
+        return view('secretary.index', [
+            'user' => $user
+        ]);
     }
 }

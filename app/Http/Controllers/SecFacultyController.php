@@ -8,6 +8,12 @@ class SecFacultyController extends Controller
 {
     public function faculty_blade()
     {
-        return view('secretary.faculty');
+
+        $user = auth()->user();
+
+
+        return view('secretary.faculty', [
+            'user' => $user
+        ]);
     }
 }

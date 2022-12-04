@@ -8,6 +8,10 @@ class SecAnnouncementController extends Controller
 {
     public function announcement()
     {
-        return view('secretary.announcement');
+        $user = auth()->user();
+
+        return view('secretary.announcement', [
+            'user' => $user
+        ]);
     }
 }
